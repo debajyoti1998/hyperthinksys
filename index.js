@@ -10,7 +10,14 @@ const {NotFound}=require("./utils/error")
 /**
   * middleware
 **/
-DB();
+DB().authenticate()
+.then(() => {
+  console.log(' DB Connection has been established successfully.');
+})
+.catch(err => {
+  console.error('Unable to connect to the database:');
+});
+
 
 /**
   * middleware
